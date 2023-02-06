@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
+:root {
+	--clr-1: hsl(177, 71%, 34%);
+	--clr-2: hsl(0, 59%, 41%);
+	--clr-selec: rgb(236, 195, 195);
+}
+
 *,
 *::before,
 *::after {
@@ -25,6 +31,7 @@ main {
 	place-content: center;
 	row-gap: 3rem;
 	padding: 2rem;
+	overflow: hidden;
 }
 
 p {
@@ -40,7 +47,11 @@ h1 {
 	justify-content: center;
 	gap: 2rem 5rem;
 	cursor: default;
-	color: hsl(222, 88%, 16%);
+	color: var(--clr-1);
+}
+
+h1 span::selection {
+	background-color: var(--clr-selec);
 }
 
 .word {
@@ -48,6 +59,18 @@ h1 {
 	flex-flow: row nowrap;
 	align-items: baseline;
 	gap: 0.2ch;
+	animation: appear 3s;
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+		transform: translateY(-200px);
+	}
+}
+
+.word:last-of-type {
+	color: var(--clr-2);
 }
 
 .letter {
